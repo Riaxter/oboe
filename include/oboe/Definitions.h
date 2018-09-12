@@ -379,6 +379,13 @@ namespace oboe {
         static int32_t ChannelCount;
     };
 
+    /**
+     * The time at which the frame at `position` was presented
+     */
+    struct FrameTimestamp {
+        int64_t position;
+        int64_t timestamp;
+    };
 
 
 } // namespace oboe

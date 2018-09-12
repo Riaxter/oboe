@@ -192,9 +192,24 @@ public:
         return ResultWithValue<double>(Result::ErrorUnimplemented);
     }
 
+    /**
+     * \deprecated
+     * \see getTimestamp(clockid_t)
+     */
     virtual Result getTimestamp(clockid_t clockId,
                                 int64_t *framePosition,
                                 int64_t *timeNanoseconds) {
+        return Result::ErrorUnimplemented;
+    }
+
+    /**
+     * Get the time in nanoseconds at which a particular frame was presented to the audio device.
+     *
+     * @param clockId can be CLOCK_MONOTONIC or CLOCK_BOOTTIME.
+     * @return a FrameTimestamp containing the position and time at which a particular audio frame
+     * was presented, or an error if the operation failed.
+     */
+    virtual ResultWithValue<FrameTimestamp> getTimestamp(clockid_t clockId){
         return Result::ErrorUnimplemented;
     }
 

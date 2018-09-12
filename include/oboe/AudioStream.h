@@ -279,14 +279,6 @@ protected:
 
     DataCallbackResult fireCallback(void *audioData, int numFrames);
 
-    virtual void setNativeFormat(AudioFormat format) {
-        mNativeFormat = format;
-    }
-
-    // TODO: make private
-    // These do not change after open.
-    AudioFormat mNativeFormat = AudioFormat::Invalid;
-
     // TODO these should be atomic like in AAudio
     int64_t              mFramesWritten = 0;
     int64_t              mFramesRead = 0;
